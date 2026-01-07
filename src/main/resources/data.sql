@@ -3,21 +3,36 @@ SET SCHEMA cine;
 -- =========================
 -- USUARIOS
 -- =========================
-INSERT INTO usuarios (email, password_hash, role)
+INSERT INTO usuarios (email, nombre, password_hash, role)
 VALUES
-    ('admin@cineapp.com', 'hash_admin', 'ADMIN'),
-    ('user1@mail.com', 'hash_user1', 'VIEWER'),
-    ('user2@mail.com', 'hash_user2', 'VIEWER');
+    ('admin@cineapp.com', 'Administrador', 'hash_admin', 'ADMIN'),
+    ('user1@mail.com', 'Usuario Uno', 'hash_user1', 'VIEWER'),
+    ('user2@mail.com', 'Usuario Dos', 'hash_user2', 'VIEWER');
 
 -- =========================
 -- PELICULAS
 -- =========================
-INSERT INTO peliculas (titulo, director, genero, anio_estreno, descripcion)
+INSERT INTO peliculas (
+    titulo, director, genero, anio_estreno,
+    duracion_min, pais_produccion, sinopsis,
+    valoracion_media, imagen_portada
+)
 VALUES
-    ('Peli1', 'Christopher Nolan', 'Sci-Fi', 2010, 'Sueños dentro de sueños'),
-    ('peli2', 'Christopher Nolan', 'Sci-Fi', 2014, 'Viaje espacial'),
-    ('pelicula3', 'Wachowski', 'Sci-Fi', 1999, 'Realidad simulada'),
-    ('pruebapeli4', 'Ridley Scott', 'Drama', 2000, 'Roma y venganza');
+    ('Inception', 'Christopher Nolan', 'Sci-Fi', 2010,
+     148, 'USA', 'Sueños dentro de sueños.', 8.8,
+     'https://example.com/posters/inception.jpg'),
+
+    ('Interstellar', 'Christopher Nolan', 'Sci-Fi', 2014,
+     169, 'USA', 'Viaje espacial y relatividad.', 8.6,
+     'https://example.com/posters/interstellar.jpg'),
+
+    ('The Matrix', 'Wachowski', 'Sci-Fi', 1999,
+     136, 'USA', 'Realidad simulada y rebelión.', 8.7,
+     'https://example.com/posters/matrix.jpg'),
+
+    ('Gladiator', 'Ridley Scott', 'Drama', 2000,
+     155, 'USA', 'Roma y venganza.', 8.5,
+     'https://example.com/posters/gladiator.jpg');
 
 -- =========================
 -- PUNTUACIONES
