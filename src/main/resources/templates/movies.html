@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Películas</title></head>
+<body>
+<h1>Películas</h1>
+<a href="/recommendations">Ver recomendaciones</a> |
+<a href="/logout">Logout</a>
+
+<ul>
+    <li th:each="p : ${peliculas}">
+        <span th:text="${p.titulo}">Titulo</span>
+
+        <form method="post" action="/movies/rate" style="display:inline;">
+            <input type="hidden" name="peliculaId" th:value="${p.id}" />
+            <input type="number" name="puntuacion" min="0" max="10" required />
+            <button type="submit">Puntuar</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>
